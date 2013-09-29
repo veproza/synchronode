@@ -11,5 +11,5 @@ require! async
         time = parseInt stdout
         diff = time - expectedTime
         cb null, diff
-    console.log "#i\t#{diffs[0]}\t#{diffs[1]}\t#expectedTime"
+    console.log "#i\t#{diffs.join '\t'}\t#expectedTime"
     cb!
