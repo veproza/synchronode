@@ -5,9 +5,9 @@ require! async
     timeout = 1000 - time % 1000
     expectedTime = time + timeout
     expectedTime *= 1000
-    ports = [8081 8082]
+    ports = ["/tmp/test1.sock" "/tmp/test2.sock"]
     (err, diffs) <~ async.map ports, (port, cb) ->
-        (err, stdout, stderr) <~ exec "node queryer.js -p #port -t #expectedTime"
+        (err, stdout, stderr) <~ exec "nodejs queryer.js -p #port -t #expectedTime"
         time = parseInt stdout
         diff = time - expectedTime
         cb null, diff

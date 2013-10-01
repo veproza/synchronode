@@ -2,8 +2,8 @@ require! net
 require! optimist.argv
 require! microtime
 expectedTime = parseInt argv.t, 10
-port = argv.p
-client = net.connect {host: '127.0.0.1', port}
+path = argv.p
+client = net.connect {path}
 while microtime.now! < expectedTime
     true
 client.write "foo"
